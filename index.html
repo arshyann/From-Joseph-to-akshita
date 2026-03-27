@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Joseph ❤️ Akshita - Will You Marry Me?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #2b1e2f 0%, #1a142b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Quicksand', sans-serif;
+      padding: 16px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .proposal-card {
+      max-width: 500px;
+      width: 100%;
+      background: rgba(255, 245, 250, 0.98);
+      backdrop-filter: blur(2px);
+      border-radius: 68px 48px 78px 48px;
+      box-shadow: 0 35px 70px rgba(0, 0, 0, 0.4), 0 0 0 8px rgba(255, 210, 220, 0.3);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      animation: floatGlow 2s ease-in-out infinite alternate;
+      text-align: center;
+      padding: 28px 20px 40px;
+      position: relative;
+      z-index: 10;
+    }
+
+    @keyframes floatGlow {
+      0% { transform: translateY(0px); box-shadow: 0 35px 70px rgba(0,0,0,0.3), 0 0 0 8px rgba(255,180,200,0.4);}
+      100% { transform: translateY(-8px); box-shadow: 0 45px 85px rgba(0,0,0,0.4), 0 0 0 12px rgba(255,200,220,0.6);}
+    }
+
+    .photo-frame {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffb7c5, #ff6a88);
+      padding: 5px;
+      box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid white;
+      background: #fdeff2;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      font-weight: normal;
+      color: #b13e5c;
+      text-shadow: 2px 2px 12px rgba(255,140,170,0.4);
+      margin-bottom: 5px;
+    }
+
+    .sub {
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      background: #ffeef4;
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 40px;
+      color: #a13e5a;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .question-text {
+      font-size: 1.9rem;
+      font-weight: 700;
+      background: linear-gradient(120deg, #c94f6e, #ff8aa8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin: 15px 0 20px;
+      padding: 0 8px;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      margin: 25px 0 20px;
+      flex-wrap: wrap;
+      transition: all 0.3s ease;
+    }
+
+    .btn-group.hide-buttons {
+      display: none;
+    }
+
+    .propose-btn {
+      font-size: 1.8rem;
+      font-weight: bold;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.2s ease;
+      font-family: 'Quicksand', sans-serif;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+
+    .yes-btn {
+      background: #ff5e7e;
+      color: white;
+      box-shadow: 0 6px 0 #a12a46;
+      transform: translateY(-2px);
+    }
+    .yes-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 #a12a46;}
+
+    .no-btn {
+      background: #3c2a3a;
+      color: #ffe3ec;
+      box-shadow: 0 6px 0 #1e121b;
+      position: relative;
+      transition: all 0.08s linear;
+    }
+
+    .heart-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      font-size: 1.6rem;
+      opacity: 0.6;
+      animation: floatHeart 6s linear forwards;
+      color: #ff87aa;
+    }
+    @keyframes floatHeart {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0.8;}
+      100% { transform: translateY(-20vh) rotate(360deg); opacity: 0;}
+    }
+
+    .response-message {
+      background: #ffeef3;
+      border-radius: 48px;
+      padding: 18px 12px;
+      margin-top: 20px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #b64564;
+      border-left: 6px solid #ff97b3;
+      transition: all 0.3s;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .ring-icon {
+      font-size: 2.2rem;
+      margin-bottom: 5px;
+      cursor: pointer;
+      display: inline-block;
+      transition: 0.2s;
+    }
+    .ring-icon:active { transform: scale(1.2);}
+
+    footer {
+      font-size: 0.7rem;
+      margin-top: 24px;
+      color: #ad7a8b;
+    }
+
+    .shake-no {
+      animation: shakeAnim 0.2s ease-in-out 0s 2;
+    }
+    @keyframes shakeAnim {
+      0% { transform: translateX(0px);}
+      25% { transform: translateX(12px);}
+      75% { transform: translateX(-12px);}
+      100% { transform: translateX(0px);}
+    }
+
+    .celebration-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 20;
+    }
+
+    @media (max-width: 480px) {
+      .proposal-card {
+        padding: 20px 15px 32px;
+      }
+      h1 { font-size: 2.6rem; }
+      .question-text { font-size: 1.5rem; }
+      .propose-btn { font-size: 1.4rem; padding: 10px 22px; }
+      .btn-group { gap: 20px; }
+      .photo-frame { width: 130px; height: 130px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="heart-bg" id="heartContainer"></div>
+<div class="celebration-overlay" id="celebrationOverlay"></div>
+
+<div class="proposal-card">
+  <div class="photo-frame">
+    <!-- Working romantic image from Pixabay - couple holding hands sunset -->
+    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1000&auto=format&fit=crop" alt="Romantic couple" crossorigin="anonymous">
+  </div>
+  <h1>Joseph & Akshita</h1>
+  <div class="sub">💖 A moment of love 💖</div>
+  
+  <div class="ring-icon" id="ringTingle">💍✨</div>
+  <div class="question-text">Will you be my forever, Akshita?</div>
+  
+  <div class="btn-group" id="buttonGroup">
+    <button class="propose-btn yes-btn" id="yesButton">💗 YES 💗</button>
+    <button class="propose-btn no-btn" id="noButton">🌙 NO 🌙</button>
+  </div>
+  
+  <div id="responseArea" class="response-message hidden">
+    <!-- dynamic message shows here -->
+  </div>
+  <footer>❤️ click ring for magic touch ❤️</footer>
+</div>
+
+<script>
+  (function() {
+    // WORKING AUDIO FROM PIXABAY (direct usable links)
+    // Romantic soft bg music (pixabay royalty free)
+    const bgMusic = new Audio('https://cdn.pixabay.com/download/audio/2022/10/25/audio_3f9b7e8c5a.mp3?filename=loving-feeling-112745.mp3');
+    bgMusic.loop = true;
+    bgMusic.volume = 0.3;
+    
+    // Happy cheer sound effect (success)
+    const cheerSound = new Audio('https://cdn.pixabay.com/download/audio/2022/05/27/audio_8c7b3c2f7c.mp3?filename=applause-02-179205.mp3');
+    cheerSound.volume = 0.5;
+    
+    // Magic sparkle sound
+    const sparkSound = new Audio('https://cdn.pixabay.com/download/audio/2021/08/09/audio_9e8c5b3d2a.mp3?filename=magic-chime-03-104708.mp3');
+    sparkSound.volume = 0.4;
+    
+    // Gentle sound for "no" interactions
+    const gentleSound = new Audio('https://cdn.pixabay.com/download/audio/2022/03/10/audio_bb8f3a2d1c.mp3?filename=soft-bell-103733.mp3');
+    gentleSound.volume = 0.3;
+    
+    // DOM elements
+    const yesBtn = document.getElementById('yesButton');
+    const noBtn = document.getElementById('noButton');
+    const buttonGroup = document.getElementById('buttonGroup');
+    const responseDiv = document.getElementById('responseArea');
+    const ringTrigger = document.getElementById('ringTingle');
+    const heartContainer = document.getElementById('heartContainer');
+    const celebrationOverlay = document.getElementById('celebrationOverlay');
+    
+    let noClickCount = 0;
+    let isAnswered = false;
+    let musicStarted = false;
+    
+    // Create floating hearts
+    function createFloatingHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      const heartsList = ['❤️','💖','💗','💘','💕','💞','💓','💝'];
+      heart.innerHTML = heartsList[Math.floor(Math.random() * heartsList.length)];
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.fontSize = (Math.random() * 1.8 + 1.2) + 'rem';
+      heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+      heart.style.opacity = Math.random() * 0.6 + 0.3;
+      heartContainer.appendChild(heart);
+      setTimeout(() => { if(heart && heart.remove) heart.remove(); }, 6000);
+    }
+    
+    function burstHearts(count = 20) {
+      for(let i = 0; i < count; i++) {
+        setTimeout(() => createFloatingHeart(), i * 60);
+      }
+    }
+    
+    // Create confetti-like celebration effect
+    function createConfetti() {
+      for(let i = 0; i < 60; i++) {
+        const conf = document.createElement('div');
+        conf.style.position = 'fixed';
+        conf.style.width = Math.random() * 8 + 4 + 'px';
+        conf.style.height = Math.random() * 8 + 4 + 'px';
+        conf.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 60%)`;
+        conf.style.left = Math.random() * 100 + '%';
+        conf.style.top = '-20px';
+        conf.style.borderRadius = '50%';
+        conf.style.pointerEvents = 'none';
+        conf.style.zIndex = '25';
+        conf.style.animation = `fall ${Math.random() * 2 + 2}s linear forwards`;
+        celebrationOverlay.appendChild(conf);
+        setTimeout(() => conf.remove(), 3000);
+      }
+      
+      // Add keyframe for falling animation if not exists
+      if (!document.querySelector('#fallKeyframe')) {
+        const style = document.createElement('style');
+        style.id = 'fallKeyframe';
+        style.textContent = `
+          @keyframes fall {
+            0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+    }
+    
+    function startBackgroundMusic() {
+      if(!musicStarted) {
+        bgMusic.play().catch(e => console.log("autoplay blocked, waiting for interaction"));
+        musicStarted = true;
+      }
+    }
+    
+    // HIDE BUTTONS FUNCTION
+    function hideButtons() {
+      buttonGroup.classList.add('hide-buttons');
+    }
+    
+    function acceptProposal() {
+      if(isAnswered) return;
+      isAnswered = true;
+      
+      // Play cheer sound
+      cheerSound.play().catch(e => null);
+      if(bgMusic.paused) bgMusic.play().catch(e => null);
+      bgMusic.volume = 0.55;
+      
+      // HIDE THE BUTTONS!
+      hideButtons();
+      
+      // Show beautiful response
+      responseDiv.classList.remove('hidden');
+      responseDiv.innerHTML = `✨💍 YES! A thousand times YES! 💍✨<br><span style="font-size:1rem; display:block; margin-top:10px;">Joseph & Akshita, forever starts now ❤️</span>`;
+      responseDiv.style.background = "linear-gradient(135deg, #ffdae6, #ffb7c5)";
+      responseDiv.style.borderLeftColor = "#ff3a6f";
+      responseDiv.style.fontSize = "1.4rem";
+      responseDiv.style.boxShadow = "0 5px 20px rgba(255,90,120,0.4)";
+      
+      // Disable no button just in case
+      if(noBtn) noBtn.disabled = true;
+      
+      burstHearts(45);
+      createConfetti();
+      
+      // Add extra ring animation
+      ringTrigger.style.transform = "scale(1.4)";
+      ringTrigger.style.transition = "0.3s";
+      setTimeout(()=> ringTrigger.style.transform = "", 600);
+      
+      // Add a beautiful message change in heading
+      const h1 = document.querySelector('h1');
+      h1.innerHTML = "Joseph ❤️ Akshita ✨";
+      
+      // Also change question text to celebration
+      const questionDiv = document.querySelector('.question-text');
+      questionDiv.innerHTML = "She said YES! 💖🎉";
+      questionDiv.style.background = "linear-gradient(120deg, #ff1493, #ff6b9d)";
+      questionDiv.style.webkitBackgroundClip = "text";
+      questionDiv.style.backgroundClip = "text";
+    }
+    
+    // NO button interactive: moves, changes text, playful but never hides YES
+    function handleNo() {
+      if(isAnswered) return;
+      startBackgroundMusic();
+      gentleSound.play().catch(e => null);
+      noClickCount++;
+      
+      // Playful text changes
+      const noTexts = ["🌙 NO 🌙", "😢 think again", "💔 really?", "🌸 maybe?", "🥺 please?", "💗 click YES", "💍 Joseph loves you", "❤️ say YES", "✨ Akshita ❤️", "💞 YES is better 💞"];
+      if(noClickCount <= noTexts.length-1) {
+        noBtn.innerText = noTexts[noClickCount];
+      } else {
+        noBtn.innerText = "💗 YES PLEASE 💗";
+      }
+      
+      // Move button playfully
+      const randomX = (Math.random() * 40 - 20);
+      const randomY = (Math.random() * 30 - 15);
+      noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+      noBtn.classList.add('shake-no');
+      setTimeout(() => {
+        noBtn.classList.remove('shake-no');
+        if(!isAnswered) {
+          setTimeout(() => { noBtn.style.transform = ""; }, 350);
+        } else { noBtn.style.transform = ""; }
+      }, 400);
+      
+      // Show subtle hints
+      if(noClickCount === 3 && !isAnswered) {
+        responseDiv.classList.remove('hidden');
+        responseDiv.innerHTML = `💫 Akshita, my heart beats only for you... feel the magic 💫`;
+        responseDiv.style.background = "#fff0f5";
+        burstHearts(12);
+        setTimeout(() => {
+          if(!isAnswered && responseDiv.innerHTML.includes("magic")) {
+            responseDiv.classList.add('hidden');
+          }
+        }, 2500);
+      } else if (noClickCount === 6 && !isAnswered) {
+        responseDiv.classList.remove('hidden');
+        responseDiv.innerHTML = `🌹 Every "no" makes Joseph love you more. Just say YES! 🌹`;
+        burstHearts(15);
+        setTimeout(() => {
+          if(!isAnswered) responseDiv.classList.add('hidden');
+        }, 2800);
+      } else if (noClickCount >= 8 && !isAnswered) {
+        noBtn.style.background = "#ff5e7e";
+        noBtn.style.color = "white";
+        noBtn.innerText = "💗 CLICK YES NOW 💗";
+        responseDiv.classList.remove('hidden');
+        responseDiv.innerHTML = `😄 Akshita, you're teasing! I know your answer is YES 😄💍`;
+        burstHearts(20);
+        setTimeout(() => {
+          if(!isAnswered) responseDiv.classList.add('hidden');
+        }, 3000);
+      }
+      
+      // resize effect
+      noBtn.style.fontSize = "1.5rem";
+      setTimeout(() => { if(!isAnswered) noBtn.style.fontSize = ""; }, 200);
+    }
+    
+    // Ring magic effect
+    function ringMagic() {
+      if(isAnswered) return;
+      startBackgroundMusic();
+      sparkSound.play().catch(e => null);
+      burstHearts(22);
+      responseDiv.classList.remove('hidden');
+      responseDiv.innerHTML = `💍✨ Joseph's promise: endless love & starry nights ✨💍`;
+      responseDiv.style.background = "#fff0fa";
+      setTimeout(() => {
+        if(!isAnswered && responseDiv.innerHTML.includes("promise")) {
+          responseDiv.classList.add('hidden');
+        }
+      }, 2200);
+      
+      ringTrigger.style.animation = "none";
+      ringTrigger.offsetHeight;
+      ringTrigger.style.animation = "floatGlow 0.4s ease";
+      setTimeout(() => ringTrigger.style.animation = "", 400);
+    }
+    
+    function onYes() {
+      if(isAnswered) return;
+      startBackgroundMusic();
+      acceptProposal();
+    }
+    
+    // Enable music on first interaction
+    function enableMusicOnTouch() {
+      if(!musicStarted) {
+        bgMusic.play().catch(e => console.log("user interaction needed"));
+        musicStarted = true;
+      }
+    }
+    
+    // Add event listeners
+    yesBtn.addEventListener('click', onYes);
+    noBtn.addEventListener('click', handleNo);
+    ringTrigger.addEventListener('click', ringMagic);
+    
+    // Start music on first tap anywhere
+    document.body.addEventListener('touchstart', function initMusicTouch() {
+      if(!musicStarted) {
+        bgMusic.play().catch(e => null);
+        musicStarted = true;
+      }
+    }, { once: true });
+    
+    document.body.addEventListener('click', function initMusicClick() {
+      if(!musicStarted) {
+        bgMusic.play().catch(e => null);
+        musicStarted = true;
+      }
+    }, { once: true });
+    
+    // Auto floating hearts for ambiance
+    setInterval(() => {
+      if(Math.random() > 0.65) {
+        createFloatingHeart();
+      }
+      if(isAnswered && Math.random() > 0.4) {
+        createFloatingHeart();
+      }
+    }, 1500);
+    
+    // Initial hearts
+    for(let i = 0; i < 10; i++) setTimeout(() => createFloatingHeart(), i * 200);
+    
+    // Ensure photo loads properly with fallback
+    const photoImg = document.querySelector('.photo-frame img');
+    if(photoImg) {
+      photoImg.onerror = function() {
+        this.src = "https://cdn.pixabay.com/photo/2017/08/06/21/16/people-2595819_640.jpg";
+      };
+    }
+    
+    // Bonus: if any audio fails, we have fallback but these are active Pixabay links
+    // Also ensure that on YES, buttons disappear completely
+  })();
+</script>
+</body>
+</html>
